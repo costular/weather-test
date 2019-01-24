@@ -8,13 +8,16 @@ import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
+import javax.inject.Singleton
 
 @Module
 class NetModule {
 
+    @Singleton
     @Provides
     fun weatherApi(retrofit: Retrofit): WeatherApi = retrofit.create(WeatherApi::class.java)
 
+    @Singleton
     @Provides
     fun retrofit(
         gsonConverterFactory: GsonConverterFactory,
@@ -28,6 +31,7 @@ class NetModule {
             .addConverterFactory(gsonConverterFactory)
             .build()
 
+    @Singleton
     @Provides
     fun okhttpClient(): OkHttpClient =
         OkHttpClient.Builder()
@@ -44,9 +48,11 @@ class NetModule {
             }
             .build()
 
+    @Singleton
     @Provides
     fun callAdapterFactory(): RxJava2CallAdapterFactory = RxJava2CallAdapterFactory.create()
 
+    @Singleton
     @Provides
     fun gsonConverterFactory(): GsonConverterFactory = GsonConverterFactory.create()
 
