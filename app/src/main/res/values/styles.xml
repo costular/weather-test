@@ -1,11 +1,52 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="colorTextPrimary">@color/colorLightPrimaryText</item>
+        <item name="colorTextSecondary">@color/colorLightSecondaryText</item>
+    </style>
+
+    <style name="MyToolbar">
+        <item name="theme">@style/ThemeOverlay.AppCompat.Dark</item>
+        <item name="android:background">?colorPrimary</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat" />
+
+    <style name="ForecastTemperature" parent="TextAppearance.MaterialComponents.Body2">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="ForecastTime" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="DayWeather">
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name=" android:foreground">?attr/selectableItemBackground</item>
+        <item name="android:minHeight">200dp</item>
+        <item name="cardCornerRadius">16dp</item>
+        <item name="cardElevation">2dp</item>
+    </style>
+
+    <style name="DayWeatherDate" parent="TextAppearance.MaterialComponents.Headline5">
+
+    </style>
+
+    <style name="DayWeatherMaxTemp" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="android:textColor">?colorTextPrimary</item>
+    </style>
+
+    <style name="DayWeatherMinTemp" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="android:textColor">?colorTextSecondary</item>
     </style>
 
 </resources>
