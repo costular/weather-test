@@ -26,13 +26,13 @@ class ResponseMapperTest {
         Assertions.assertThat(response.city.id).isEqualTo(responseEntity.city.id)
         Assertions.assertThat(response.city.countryCode).isEqualTo(responseEntity.city.country)
 
-        Assertions.assertThat(response.weatherForecasts.first().dateTime)
+        Assertions.assertThat(response.weatherForecasts.first().timeForecasts.first().dateTime)
             .isEqualTo(DateTime(responseEntity.forecasts.first().timestamp))
 
-        Assertions.assertThat(response.weatherForecasts.first().temperature)
+        Assertions.assertThat(response.weatherForecasts.first().timeForecasts.first().temperature)
             .isEqualTo(responseEntity.forecasts.first().getTemperature())
 
-        Assertions.assertThat(response.weatherForecasts.first().mainWeather)
+        Assertions.assertThat(response.weatherForecasts.first().timeForecasts.first().mainWeather)
             .isEqualTo(responseEntity.forecasts.first().getWeatherTitle())
     }
 

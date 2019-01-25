@@ -4,9 +4,9 @@ import org.joda.time.DateTime
 
 data class Forecast(
     val dateTime: DateTime,
-    val temperature: Float,
-    val temperatureMax: Float,
-    val temperatureMix: Float,
+    val temperature: Int,
+    val temperatureMax: Int,
+    val temperatureMin: Int,
     val mainWeather: String,
     val mainWeatherDescription: String,
     val icon: String
