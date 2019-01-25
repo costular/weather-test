@@ -5,6 +5,7 @@ import com.costular.weathertest.data.network.WeatherApi
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
@@ -35,12 +36,14 @@ class NetModule {
     @Provides
     fun okhttpClient(): OkHttpClient =
         OkHttpClient.Builder()
+            .addInterceptor(HttpLoggingInterceptor().apply { level = HttpLoggingInterceptor.Level.BODY })
             .addInterceptor {
                 val url =
                         it.request()
                             .url()
                             .newBuilder()
                             .addQueryParameter("appid", BuildConfig.OPEN_WEATHER_API_KEY)
+                            .addQueryParameter("units", "metric")
                             .build()
 
                 val newRequest = it.request().newBuilder().url(url).build()
